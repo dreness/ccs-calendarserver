@@ -16,6 +16,8 @@ jobs:
     - name: Install dependencies
       run: |
         sudo apt-get install --yes libsasl2-dev libsasl2-modules-ldap libevent-dev memcached libreadline-dev postgresql
+        export PATH="/usr/local/pgsql/bin:${PATH}"
+        rehash
         ./bin/develop
     - name: Lint with flake8
       run: |
